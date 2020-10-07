@@ -1,0 +1,16 @@
+{
+  "name": "cuaderno-en-linea-colectivo-udea",
+  "version": "1.0.0",
+  "description": "Comunicaciones II",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon /server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

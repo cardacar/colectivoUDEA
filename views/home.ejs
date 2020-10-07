@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1'>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="/js/drawing.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Cuaderno En linea Colectivo UdeA</title>
+</head>
+<body>
+    <div id="menu">
+        <div id="menu1">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">contacto</a></li>
+                <li><a href="#">funcionalidad</a></li>
+            </ul>
+        </div> 
+    </div>
+    <hr/>
+    <div class="title"><h1> Cuaderno En linea Colectivo UdeA </h1></div>
+    <hr/>
+
+    <section id="pantalla-dividida">
+        <div class="izquierda">
+            <div class="fluid">
+                <div class="col-md-6" id="canvas-parent">
+                    <button class="btn btn-default" id="borrar_button">Borrador</button>
+                    <button class="btn btn-default" id="lapiz_button">Lapiz</button>
+                    <button class="btn btn-default" id="clear_button">Limpiar tablero</button>
+                    
+                    
+                    <div class="well drawing-space" id="drawing-space">
+                        <canvas id="drawing"></canvas>
+                    </div>
+                    <button class="btn btn-default" id="descarga_button">Descargar Imagen</button>
+                </div>
+            </div>
+        
+        </div>
+        <div class="derecha">
+            <div class="fluid">
+                <div class="col-md-6">
+                    <div class="well video-space" id="video-space">
+                        <h3>Chat</h3>
+                        <button class="btn btn-default" id="done_notes">Enviar</button>
+                        <textarea id="notes_textarea">
+            
+                        </textarea>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- script que sirve para crear una variable io en el navegador-->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+
+    <!-- TITULO -->
+    
+    <!-- TITULO -->
+    
+    
+    
+    <script src="/js/notes.js"></script>
+</body>
+</html>

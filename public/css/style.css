@@ -1,0 +1,69 @@
+body{
+    margin-top: 2%;
+    background-color: #007924;
+}
+.title{
+background: rgb(33, 221, 43);
+font: normal normal 18px quicksand;  /*fuente*/
+color:#ffffff;  /*color de la fuente*/
+letter-spacing: 2px; /*separación entre las letras*/
+text-align: center; /*alineación del texto*/
+text-transform: uppercase; /*texto se transforma en mayúsculas*/
+padding: 6px;  /*tamaño del fondo*/
+border-radius: 20px; /*forma la borde del fondo*/
+}
+.drawing-space{
+    height: 73vh;
+}
+.video-space{
+    height: 80vh;
+}
+
+canvas {
+    background-color: white;
+    width:100%;
+    height: 65vh;
+    border: 2px solid black;
+}
+
+textarea{
+    width:100%;
+    height: 60vh;
+}
+
+
+/*Hola mundo*/
+
+
+#menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: yellowgreen;
+    
+
+}
+#menu1{
+  list-style: none;
+  margin-left: 25%;
+  background-color: yellowgreen;
+  
+
+}
+
+#menu ul li{
+    display: inline-block;
+}
+
+#menu ul li a{
+    color:rgb(255, 255, 255);
+    display: block;
+    padding: 20px 70px;
+    text-decoration: none;
+}
+
+#menu ul li a:hover{
+    background-color: rgb(33, 221, 43);
+}
+
+
