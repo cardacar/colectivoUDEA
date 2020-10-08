@@ -4,7 +4,7 @@ const http = require('http');
 const fs = require('fs');
 const socketIO = require('socket.io');
 //get server ip and port synchro
-const serverConfig = JSON.parse(fs.readFileSync(__dirname +'/config/server.json','utf8'));
+//const serverConfig = JSON.parse(fs.readFileSync(__dirname +'/config/server.json','utf8'));
 
 
 
