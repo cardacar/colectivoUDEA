@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
+    //Descarga la imagen
     const btnDownload = document.getElementById('download');
     btnDownload.addEventListener('click',function(){
         const a = document.createElement('a');
