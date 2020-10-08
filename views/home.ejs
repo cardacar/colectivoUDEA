@@ -10,10 +10,11 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Cuaderno En linea Colectivo UdeA</title>
+
 </head>
 <body>
     <!--CUERPITO-->
-    <div id="menu">
+    <!--<div id="menu">
         <div id="menu1">
             <ul>
                 <li><a href="#">Inicio</a></li>
@@ -21,7 +22,40 @@
                 <li><a href="#">funcionalidad</a></li>
             </ul>
         </div> 
+    </div>-->
+    <div class="container">
+        <div class="lbl-menu">
+            <label for="radio1">INICIO</label>
+            <label for="radio2">CONTACTO</label>
+            <label for="radio3">FUNCIONALIDAD</label>
+            
+        </div>
+        <div class="content">
+            <input type="radio" name="radio" id="radio1">
+            <div class="tab1">
+                
+            </div>
+
+            <input type="radio" name="radio" id="radio2">
+            <div class="tab2">
+                <h2>CONTACTO</h2>
+                <P> Contactanos por medio de nuestros correos electronicos:
+                    Manuel.calle@udea.edu.co 
+                    Carlos.Quiroz@udea.edu.co
+                </P>
+
+            </div>
+            <input type="radio" name="radio" id="radio3">
+            <div class="tab3">
+                <h2>FUNCIONALIDAD</h2>
+                <P>Con esta aplicacion web buscamos aportar una herramienta para que los estudiantes de la universidad de antioquia puedan interactuar de forma libre en un cuaderno, el cual les ayudara a solucionar problemas de fisica, matematicas etc de forma colectiva en tiempo real. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique atque beatae nihil fugit libero animi minus eaque obcaecati eos. Nostrum recusandae ducimus ipsa voluptatibus totam possimus ex molestiae, ipsam iusto?</P>
+
+            </div>
+
+            
+        </div>
     </div>
+
     <hr/>
     <div class="title"><h1> Cuaderno En linea Colectivo UdeA </h1></div>
     <hr/>
@@ -30,8 +64,7 @@
         <div class="izquierda">
             <div class="fluid">
                 <div class="col-md-6" id="canvas-parent">
-                    <button class="btn btn-default" id="borrar_button">Borrador</button>
-                    <button class="btn btn-default" id="lapiz_button">Lapiz</button>
+                    
                     <button class="btn btn-default" id="clear_button">Limpiar tablero</button>
                     
                     
@@ -58,8 +91,9 @@
 
             </div>
         </div>
-
-    </section>  
+    </section> 
+    
+    
     <script src="/js/notes.js"></script>
 </body>
 </html>
