@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
         socket.emit('clear_canvas');
     });
 
-    document.getElementById('download')
 
     // Pintamos en el canvas
     socket.on('draw_line', function (data) {
@@ -57,17 +56,18 @@ document.addEventListener("DOMContentLoaded", function() {
         context.clearRect(0, 0, canvas.width, canvas.height);
     });
 
-    $('#dowsssnload').click(function(){
-        this.href = document.getElementById('drawing').toDataURL();
-        this.download = 'image.png';
-    });
 
-    var jpeg = document.getElementById("download");
-        jpeg.addEventListener("click",function(){	
-        var dato = document.getElementById('drawing').toDataURL("image/jpeg");
-        dato = dato.replace("image/png", "image/octet-stream");
-        document.location.href = dato;	
-        },false);
+    const btnDownload = document.getElementById('download');
+    btnDownload.addEventListener('click',function(){
+        const a = document.createElement('a');
+        document.body.appendChild(a);
+        a.href = document.getElementById('drawing').toDataURL();
+        a.download = 'image.png';
+        a.click();
+        document.body.removeChild(a);
+    })
+
+
 
 
     // main loop metodo recursivo cada 25 mili
