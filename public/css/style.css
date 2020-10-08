@@ -66,6 +66,8 @@ textarea{
     background-color: rgb(33, 221, 43);
 }
 
+
+
 .container{
     width: 100%;
     max-width: 700%;
@@ -75,14 +77,15 @@ textarea{
 
 .lbl-menu{
     background: #6ddd04;
+    text-align: center;
 }
 
 .lbl-menu label{
     display: inline-block;
     padding-top: 20px;
-    padding-left: 250px;
     padding-bottom: 20px;
-    padding-right: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
     color: #ffffff;
     cursor: pointer;
     transition: all 400ms ease;
