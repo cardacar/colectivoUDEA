@@ -1,6 +1,3 @@
-/**
- * Created by leart on 17-05-04.
- */
 document.addEventListener("DOMContentLoaded", function() {
     var color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
     var mouse = {
@@ -10,18 +7,18 @@ document.addEventListener("DOMContentLoaded", function() {
         pos_prev: false
     };
 
-    // get canvas element and create context
+    // Obtenemos el canvas y creamos el contexto
     var canvas  = document.getElementById('drawing');
     var context = canvas.getContext('2d');
     var width   =  window.innerWidth * 0.45;
     var height  = window.innerHeight * 0.65;
     var socket  = io.connect();
 
-    // set canvas to full browser width/height
+    // Obtenemos la dimension del canvas
     canvas.width = width;
     canvas.height = height;
 
-    // register mouse event handlers
+    // Registramos los movimientos del mouse
     canvas.onmousedown = function(e){ mouse.click = true; };
     canvas.onmouseup = function(e){ mouse.click = false; };
 
@@ -34,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     canvas.onmousemove = function(e) {
-        // normalize mouse position to range 0.0 - 1.0
+        // normalizamos la posicion  0.0 - 1.0
         mouse.pos = getMousePos(canvas, e);
         mouse.move = true;
     };
@@ -43,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function() {
         socket.emit('clear_canvas');
     });
 
-    // draw line received from server
+
+    // Pintamos en el canvas
     socket.on('draw_line', function (data) {
         var line = data.line;
         context.beginPath();
@@ -58,16 +56,26 @@ document.addEventListener("DOMContentLoaded", function() {
         context.clearRect(0, 0, canvas.width, canvas.height);
     });
 
-    $('#download_image').click(function(){
-        this.href = document.getElementById('drawing').toDataURL();
-        this.download = 'image.png';
-    });
 
-    // main loop, running every 25ms
+    //Descarga la imagen
+    const btnDownload = document.getElementById('download');
+    btnDownload.addEventListener('click',function(){
+        const a = document.createElement('a');
+        document.body.appendChild(a);
+        a.href = document.getElementById('drawing').toDataURL();
+        a.download = 'image.png';
+        a.click();
+        document.body.removeChild(a);
+    })
+
+
+
+
+    // main loop metodo recursivo cada 25 mili
     function mainLoop() {
-        // check if the user is drawing
+        // Verificamos que este dibujando
         if (mouse.click && mouse.move && mouse.pos_prev) {
-            // send line to to the server
+            // Enviamos la linea al servidor
             socket.emit('draw_line', { line: [ mouse.pos, mouse.pos_prev ], color: color });
             mouse.move = false;
         }

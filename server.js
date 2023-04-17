@@ -3,30 +3,25 @@ const express = require('express');
 const http = require('http');
 const fs = require('fs');
 const socketIO = require('socket.io');
-//get server ip and port synchro
-const serverConfig = JSON.parse(fs.readFileSync(__dirname +'/config/server.json','utf8'));
 
-
-
-
-//Initialitation
+//Inicializacion
 const app = express();
-//Creo el server con socket.io
+//Creo el server con http
 const server = http.createServer(app);
 //Obtengo la conexion
 const io = socketIO(server);
 
-//Create routes
+//Creacion de rutas estaticas
 require('./router')(app);
-// Static content (css, js, .png, etc) is placed in /public
+// carpeta que contiene los archivos publicos
 app.use(express.static(__dirname + '/public'));
-// Location of our views
+// Localizacion de las vistas
 app.set('views',__dirname + '/views');
 
-// Use ejs as our rendering engine
+// Uso de ejs como el motor de vista
 app.set('view engine', 'ejs');
 
-// Tell Server that we are actually rendering HTML files through EJS.
+// Le decimos al servidor que usaremos ejs en vez de html
 app.engine('html', require('ejs').renderFile);
 
 //Settings
@@ -40,28 +35,28 @@ server.listen(app.get('port'), () => {
     console.log('Server iniciado en el puerto 3000');
 });
 
+//hola mundo
 
-
-// array of all lines drawn
+// array de todas las lineas de dibujo
 var line_history = [];
 var notes;
 var notes_taken = 0;
 
 
-// event-handler for new incoming connections
+// Evento que captura una nueva conexion al socket
 io.on('connection', function (socket) {
 
-    // first send the history to the new client and old notess
+    // Primero le enviamos al usuario los trazos y el chat
     for (var i in line_history) {
         socket.emit('draw_line', line_history[i] );
     }
     socket.emit('startup', { notes: notes, notes_taken: notes_taken });
 
-    // add handler for message type "draw_line".
+    // Mandamos un nuevo trazo
     socket.on('draw_line', function (data) {
-        // add received line to history
+        // recibimos el historial de trazos
         line_history.push(data);
-        // send line to all clients
+        // mandamos todos
         io.emit('draw_line', data);
     });
 
